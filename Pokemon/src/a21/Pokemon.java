@@ -2,6 +2,7 @@ package a21;
 
 import java.util.ArrayList;
 
+
 import a21.Type;
 
 /**
@@ -26,7 +27,24 @@ public class Pokemon {
 	private boolean swapAllow;
 	
 	private ArrayList<Swap> swaps;
+	private ArrayList<Competition> comps;
 	
+	private int point;
+	
+	public int setPunkt(){
+		if (this.type == type.POISON) {
+			return (int)(Math.random()*100) + 50;
+			}
+		if (this.type == type.FIRE ){
+			return (int)(Math.random()*100) + 20;
+			}
+		if (this.type == type.WATER){
+			return (int)(Math.random()*100) + 30;
+		}
+		else{
+			return 0;
+		}
+	}
 	/**
 	 * @return the owner
 	 */
@@ -48,10 +66,15 @@ public class Pokemon {
 		number = nextNumber;
 		nextNumber = nextNumber + 1;
 		swaps = new ArrayList<Swap>();
+		comps = new ArrayList<Competition>();
 		swapAllow = true;
-		
+		this.point = setPunkt();
 	}
+	
 
+	public int getPoint() {
+		return point;
+	}
 	/**
 	 * @return the name
 	 */
@@ -103,6 +126,10 @@ public class Pokemon {
 	
 	public void addSwap(Swap swap) {
 		swaps.add(swap);
+	}
+	
+	public void addComp(Competition comp){
+		comps.add(comp);
 	}
 
 	/* (non-Javadoc)

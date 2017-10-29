@@ -82,20 +82,24 @@ public class PokemonManager {
 		System.out.println("And Poison always wins!\nEnd of Battle.");
 		
 		
+	
 		Swap swap = new Swap();
+					
+		swap = new Competition();
+		
+		System.out.println("squirtle has " +  squirtle.getPoint()+ " points. ");
+		System.out.println("wartortle has " + bulbasaur.getPoint() + " points. ");
+		
 		System.out.println(squirtle.getOwner().toString());
-
+		System.out.println(bulbasaur.getOwner().toString());
+		
+					
+		swap.execute(squirtle, bulbasaur);	
+		   
+		
+		System.out.println(squirtle.getOwner());
+		System.out.println(bulbasaur.getOwner());	
 		System.out.println(swap.toString());
-		try {			
-			swap.execute(squirtle, charmander);		
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		System.out.println(swap.toString());
-		System.out.println(squirtle.getOwner().toString());
-
-
 	}
 
 }

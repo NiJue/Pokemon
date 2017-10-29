@@ -2,31 +2,32 @@ package a21;
 import a21.Pokemon;
 import a21.Trainer;
 import java.util.Date;
-import java.util.ArrayList;
+
 
 
 public class Swap {
-	private Trainer trainerA;
-	
-	private Trainer trainerB;
-	
-	private Pokemon pokemonA;
-	
-	private Pokemon pokemonB;
-	
-	private Date date;
-	
-	private String ID;
-	
+	private Trainer trainerA;	
+	private Trainer trainerB;	
+	private Pokemon pokemonA;	
+	private Pokemon pokemonB;	
+	private Date date;	
+	private String ID;	
 	private static int nextNumber = 0;
 	
-	public Swap() {	
+
 		// initialization happens in execute()-method
-	}
+	
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	public Swap(){
+		this.date = new Date();
+		
+		this.ID = Integer.toString(nextNumber);
+		nextNumber++;
+	}
+	
 	@Override
 	public String toString() {
 		return "Swap [trainerA=" + trainerA + ", trainerB=" + trainerB + ", pokemonA=" + pokemonA + ", pokemonB="
@@ -43,12 +44,7 @@ public class Swap {
 						this.pokemonB = pokeB;
 						
 						trainerA = pokeA.getOwner();
-						trainerB = pokeB.getOwner();
-
-						this.date = new Date();
-						
-						this.ID = Integer.toString(nextNumber);
-						nextNumber++;
+						trainerB = pokeB.getOwner();						
 						
 						pokeA.addSwap(this);
 						pokeB.addSwap(this);
